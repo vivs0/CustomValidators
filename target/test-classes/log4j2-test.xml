@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config" status="off" strict="true" >
+
+<Appenders>
+	<Appender name="STDOUT" type="Console">
+      <Layout type="PatternLayout" pattern="%d{HH:mm:ss.SSS} %highlight{%-5level}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue} - %msg%n"/>
+	</Appender>
+	
+	<Appender type="Console" name="FLOW">
+      <Layout type="PatternLayout" pattern="%highlight{%-5level}{ERROR=red, INFO=green, DEBUG=blue} - %highlight{%msg%n}{ERROR=red, INFO=green, DEBUG=blue}"/>
+    </Appender>
+
+</Appenders>
+
+  <Loggers>
+    <Logger name="org.junit" level="Debug" additivity="false">
+      <AppenderRef ref="FLOW"/>
+    </Logger>
+    <Logger name="org.advanced.validators.test" level="debug" additivity="false">
+      <AppenderRef ref="FLOW"/>
+    </Logger>  
+    <Logger name="org.advanced.validators" level="debug" additivity="false">
+      <AppenderRef ref="FLOW"/>
+    </Logger>  
+    <Root level="DEBUG">
+      <AppenderRef ref="STDOUT"/>
+    </Root>
+ 	
+  </Loggers>
+</Configuration>
