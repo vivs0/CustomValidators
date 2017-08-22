@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import javax.xml.ws.RespectBinding;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

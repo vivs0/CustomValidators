@@ -1,22 +1,31 @@
 package org.advanced.validators;
 
+import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
 import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import javax.annotation.Generated;
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import javax.validation.groups.Default;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+/**
+ * Specifies the unique key of an entity.
+ * can be used with fields such as Email, mobile phone, Identification number etc, that 
+ * are unique.
+ * Can be used with any primitive and wrapper type
+ *   <pre>
+ *   Example:
+ *
+ *   &#064;UniqueKey(className=EntityName,columnName=FieldName, message=ErrorMessage)
+ *   public String Email() { return Email; }
+ * </pre>
+ **/
 @Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD,ElementType.METHOD, ElementType.ANNOTATION_TYPE})
+@Retention(RUNTIME)
+@Target({FIELD,METHOD, ANNOTATION_TYPE})
 @Constraint(validatedBy=UniqueKeyValidator.class)
 public @interface UniqueKey {
 
